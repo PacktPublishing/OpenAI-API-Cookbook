@@ -1,2 +1,2 @@
-# ChatGPT-API-Cookbook
-ChatGPT API Cookbook, published by Packt
+# OpenAI-API-Cookbook
+OpenAI API Cookbook, published by Packt
