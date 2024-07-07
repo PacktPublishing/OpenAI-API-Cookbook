@@ -1,0 +1,8 @@
+# get answer
+thread_messages = client.beta.threads.messages.list(thread.id)
+answer = thread_messages.data[0].content[0].text.value
+
+# return answer
+result = {
+'answer': answer
+}
