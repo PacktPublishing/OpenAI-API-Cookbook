@@ -1,0 +1,5 @@
+training_data = client.files.create(
+   file=open("chapter4trainingdata.json", "rb"),
+   purpose='fine-tune'
+)
+file_id = training_data.id
