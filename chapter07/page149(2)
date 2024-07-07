@@ -1,0 +1,11 @@
+# save text
+text = ''
+
+# Create a PDF reader object using the byte stream from the response
+with io.BytesIO(response.content) as pdf_file:
+pdf_reader = PdfReader(pdf_file)
+
+# Iterate over each page and print the text
+for page_num in range(len(pdf_reader.pages)):
+   page = pdf_reader.pages[0]
+   text = text + page.extract_text()
