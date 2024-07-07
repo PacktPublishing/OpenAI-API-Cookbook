@@ -1,0 +1,20 @@
+response = client.chat.completions.create(
+model="gpt-4",
+messages=[
+   {
+      "role": "system",
+      "content": "You are a helpful assistant that goes through text
+       file and answers questions"
+   },
+   {
+      "role": "user",
+      "content": '\n\n TEXT: ' + text + ' \n\n QUESTION: ' + question
+   }
+],
+temperature=0.64,
+max_tokens=1000,
+top_p=1,
+frequency_penalty=0,
+presence_penalty=0
+)
+answer = response.choices[0].message.content
