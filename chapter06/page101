@@ -1,0 +1,14 @@
+import functions_framework
+from openai import OpenAI
+@functions_framework.http
+def get_message(request):
+   request_json = request.get_json(silent=True)
+   email = request_json['email']
+   client = OpenAI(api_key = '<your-openai-api-key-here>')
+   ### Playground Code Here ###
+   result = {
+      'choice_1': response.choices[0].message.content,
+      'choice_2': response.choices[1].message.content,
+      'choice_3': response.choices[2].message.content,
+   }
+   return result
