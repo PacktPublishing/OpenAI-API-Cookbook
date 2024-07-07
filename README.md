@@ -1,6 +1,6 @@
 # OpenAI API Cookbook
 
-<a href="https://www.packtpub.com/en-in/product/openai-api-cookbook-9781805121350?utm_source=github&utm_medium=repository&utm_campaign=9781786461629"><img src="https://static.packt-cdn.com/assets/images/Packt-iPad-Logos_250x308.png" alt="OpenAI API Cookbook" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/en-in/product/openai-api-cookbook-9781805121350?utm_source=github&utm_medium=repository&utm_campaign=9781786461629"><img src="[https://static.packt-cdn.com/assets/images/Packt-iPad-Logos_250x308.png](https://static.packt-cdn.com/products/9781805121350/cover/smaller)" alt="OpenAI API Cookbook" height="256px" align="right"></a>
 
 This is the code repository for [OpenAI API Cookbook](https://www.packtpub.com/en-in/product/openai-api-cookbook-9781805121350?utm_source=github&utm_medium=repository&utm_campaign=9781786461629), published by Packt.
 
