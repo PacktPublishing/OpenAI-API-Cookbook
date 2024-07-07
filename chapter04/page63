@@ -1,0 +1,7 @@
+def create_embeddings(text):
+   embedding = client.embeddings.create(input=text, model="textembedding-
+   ada-002").data[0].embedding
+   return embedding
+def compare_two_embeddings(a, b):
+   cos_sim = dot(a, b)/(norm(a)*norm(b))
+   return cos_sim
