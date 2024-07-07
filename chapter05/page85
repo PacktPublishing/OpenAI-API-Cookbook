@@ -1,0 +1,29 @@
+import functions_framework
+from openai import OpenAI
+@functions_framework.http
+def create_slogan_with_parameters (request):
+   request_json = request.get_json(silent=True)
+   business_description = request_json['name']
+   client = OpenAI(api_key = '<API-key>')
+   response = client.chat.completions.create(
+      model="gpt-3.5-turbo",
+      messages=[
+         {
+            "role": "system",
+            "content": "You are an AI assistant that creates one
+            slogan based on company descriptions"
+         },
+         {
+            "role": "user",
+            "content": business_description
+         }
+      ],
+      temperature=1,
+      max_tokens=256,
+      top_p=1,
+      frequency_penalty=0,
+      presence_penalty=0
+   )
+   slogan = response.choices[0].message.content
+   return {"slogan": slogan, "number_of_characters":
+   len(slogan)}
