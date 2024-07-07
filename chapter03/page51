@@ -1,0 +1,19 @@
+{
+   "model": "gpt-3.5-turbo",
+   "messages": [
+      {
+         "role": "user",
+         "content": "Explain gravity in one sentence"
+      }
+   ],
+   "temperature": 0
+}
+# Response 1
+Gravity is the force that attracts objects with mass towards
+each other.
+# Response 2
+Gravity is the force that attracts objects with mass towards
+each other.
+# Response 3
+Gravity is the force that attracts objects with mass towards
+each other.
