@@ -1,0 +1,11 @@
+{
+   "model": "gpt-3.5-turbo",
+   "messages": [
+      {
+         "role": "user",
+         "content": "Describe Donald Trump's time in office in a
+         sentence that has six five-letter words. Remember, each word
+         must have 5 letters"
+      }
+   ]
+}
