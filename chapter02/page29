@@ -1,0 +1,22 @@
+{
+   "model": "gpt-3.5-turbo",
+   "messages": [
+      {
+         "role": "system",
+         "content": " You are an AI assistant that answers questions
+         about the solar system"
+      },
+      {
+         "role": "user",
+         "content": "What's the largest planet in our solar system?"
+      },
+      {
+         "role": "assistant",
+         "content": "The largest planet in the solar system is Jupiter"
+      },
+      {
+         "role": "user",
+         "content": "How big is it?"
+      }
+   ]
+}
