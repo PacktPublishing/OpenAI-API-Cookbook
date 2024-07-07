@@ -1,0 +1,10 @@
+Completion = client.chat.completions.create(
+   model=fine_tuned_model,
+   messages=[
+      {"role": "system", "content": "You are an assistant that
+       creates funny one-line jokes based on a given scenario."},
+      {"role": "user", "content": "A man walking across the
+       road"}
+   ]
+)
+print(completion.choices[0].message)
