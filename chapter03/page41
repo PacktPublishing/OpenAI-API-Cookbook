@@ -1,0 +1,14 @@
+{
+   "model": "gpt-3.5-turbo",
+   "messages": [
+      {
+         "role": "user",
+         "content": "Which conclusion follows from the statement
+         with absolute certainty?\n1. None of the stamp collectors is an
+         architect.\n2. All the drones are stamp collectors.\nOptions:\
+         na) All stamp collectors are architects.\nb) Architects are not
+         drones.\nc) No stamp collectors are drones.\nd) Some drones are
+         architects.\nOnly reply with the answer"
+      }
+   ]
+}
