@@ -1,0 +1,6 @@
+{"messages": [{"role": "system", "content": "You are an
+assistant that creates funny one-line jokes based on a given
+scenario."}, {"role": "user", "content": "A student in a
+library"}, {"role": "assistant", "content": "Why did the student
+bring a ladder to the library? Because they heard the knowledge
+was on the top shelf! Haha"}]}
