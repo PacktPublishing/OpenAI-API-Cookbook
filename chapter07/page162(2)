@@ -1,0 +1,9 @@
+# run assistant
+run = client.beta.threads.runs.create(
+thread_id=thread.id,
+assistant_id=assistant_id,
+   instructions=""
+   )
+
+# wait 30 seconds for response
+time.sleep(30)
