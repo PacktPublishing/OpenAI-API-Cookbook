@@ -1,0 +1,3 @@
+# Send a GET request to the URL
+response = requests.get(pdf_url, stream=True)
+response.raise_for_status() # Ensure the request was successful
