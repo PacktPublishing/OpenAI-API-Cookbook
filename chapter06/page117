@@ -1,0 +1,103 @@
+import functions_framework
+from openai import OpenAI
+@functions_framework.http
+def get_travel_details(request):
+   request_json = request.get_json(silent=True)
+   city = request_json['city']
+   client = OpenAI(api_key = '<openai-api-key here>')
+   response = client.chat.completions.create(
+      model="gpt-4",
+      messages=[
+         {
+            "role": "system",
+            "content": "You are a helpful assistant that creates
+             detailed one day itineraries based on the city that the user
+             chooses. Create only 3 activities (morning, afternoon, evening).
+             Only mention the itinerary, nothing else."
+         },
+         {
+            "role": "user",
+            "content": "Rome, Italy"
+         },
+         {
+            "role": "assistant",
+            "content": "Morning: \n\nStart the day at the Colosseum,
+	     one of the most iconic sights of Rome. Take a guided tour to
+	     fully appreciate its history and significance. \n\nAfternoon:
+	     \n\nHead over to the Vatican City. Visit the Vatican Museums,
+ 	     home to a vast collection of art and historical artifacts. Don't
+	     miss the Sistine Chapel, famous for Michelangelo's ceiling.\n\
+	     nEvening: \n\nEnjoy a leisurely stroll to the Trevi Fountain.
+	     Make sure to throw a coin over your shoulder into the fountain
+	     for good luck. Then, end the day with a delicious Italian dinner
+	     at one of the local restaurants nearby."
+         },
+         {
+	    "role": "user",
+	    "content": "Lisbon, Portugal"
+	 },
+	 {
+	    "role": "assistant",
+	    "content": "Morning: \n\nBegin your day with a visit to
+	     the iconic Belém Tower, a UNESCO World Heritage site offering
+	     panoramic views of Lisbon. \n\nAfternoon: \n\nExplore the
+	     historical neighborhood of Alfama. Wander its narrow, winding
+	     streets, visit the Se Cathedral and enjoy a traditional
+	     Portuguese lunch at a local tavern.\n\nEvening: \n\nHead
+	     to Bairro Alto, the city's bohemian district, for dinner.
+	     Afterwards, enjoy a Fado show - a traditional Portuguese music
+	     genre - at one of the local bars."
+	 },
+         {
+	    "role": "user",
+	    "content": city
+	 },
+      ],
+      temperature=0.64,
+      max_tokens=1024,
+      top_p=1,
+      frequency_penalty=0,
+      presence_penalty=0
+   )
+   itinerary = response.choices[0].message.content
+   response = client.chat.completions.create(
+      model="gpt-3.5-turbo-1106",
+      messages=[
+         {
+	    "role": "system",
+	    "content": "You are a helpful assistant that creates
+	     DALL-E prompts based itineraries. The prompts should be short.
+	     Create one prompt for Morning, one for Afternoon, and one for
+	     Evening. The DALL-E prompt should be separated by \"|\"."
+	 },
+         {
+	    "role": "user",
+	    "content": itinerary
+	 }
+   ],
+   temperature=0.64,
+   max_tokens=1024,
+   top_p=1,
+   frequency_penalty=0,
+   presence_penalty=0
+)
+dalle_prompts = response.choices[0].message.content
+dalle_prompts_list = response.choices[0].message.content.
+split('|')
+image_urls = []
+for prompt in dalle_prompts_list:
+   response = client.images.generate(
+      model="dall-e-3",
+      prompt=prompt,
+      size="1024x1024",
+      quality="standard",
+      n=1
+   )
+   image_urls.append(response.data[0].url)
+   result = {
+      'itinerary': itinerary,
+      'morning_image': image_urls[0],
+      'afternoon_image': image_urls[1],
+      'evening_image': image_urls[2]
+   }
+   return result
