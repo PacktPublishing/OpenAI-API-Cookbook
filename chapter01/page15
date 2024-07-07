@@ -1,0 +1,14 @@
+{
+     "model": "gpt-3.5-turbo",
+     "messages": [
+          {
+               "role": "system",
+               "content": "You are an assistant that creates marketing
+               slogans based on descriptions of companies"
+          },
+          {
+               "role": "user",
+               "content": "A company that writes engaging mystery novels"
+          }
+     ]
+}
