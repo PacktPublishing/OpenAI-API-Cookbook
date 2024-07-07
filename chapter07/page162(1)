@@ -1,0 +1,9 @@
+# create a thread
+thread = client.beta.threads.create()
+
+# create message question in thread
+message = client.beta.threads.messages.create(
+thread_id=thread.id,
+   role="user",
+   content=question
+   )
